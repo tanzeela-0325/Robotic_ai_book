@@ -1,0 +1,33 @@
+# Docker ignore file for AI-Native Humanoid Robotics book
+
+# Build artifacts
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Documentation
+node_modules/
+dist/
+build/
+*.tmp
+*.bak
+
+# Environment
+.env*
+*.env
+
+# Cache
+.cache/
+*.cache

@@ -1,0 +1,19 @@
+/* Custom CSS for AI-Native Physical Humanoid Robotics Book */
+
+:root {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21a88a;
+  --ifm-color-primary-darker: #1f9d83;
+  --ifm-color-primary-light: #29d9b7;
+  --ifm-color-primary-lighter: #3de2c2;
+  --ifm-color-primary-lightest: #5de9d1;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21a88a;
+  --ifm-color-primary-darker: #1f9d83;
+  --ifm-color-primary-light: #29d9b7;
+  --ifm-color-primary-lighter: #3de2c2;
+  --ifm-color-primary-lightest: #5de9d1;
+}

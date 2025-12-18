@@ -1,0 +1,149 @@
+# API Contract: Robot Command Interface
+
+## Overview
+This contract defines the interface between the AI command system and the ROS 2 robot control system.
+
+## Base URL
+`http://localhost:8080` (for cloud services)
+ROS 2 topics follow standard naming conventions
+
+## Authentication
+- API Key in header: `X-API-Key`
+- ROS 2: DDS-based authentication (when enabled)
+
+## Robot State Service
+
+### Get Current Robot State
+- **Topic**: `/robot_state`
+- **Type**: `std_msgs/msg/String` (JSON payload)
+- **Method**: Publisher/Subscriber
+- **Rate**: 30 Hz
+
+**Response Schema**:
+```json
+{
+  "timestamp": "float",
+  "pose": {
+    "position": {"x": "float", "y": "float", "z": "float"},
+    "orientation": {"x": "float", "y": "float", "z": "float", "w": "float"}
+  },
+  "joint_angles": {"joint_name": "float"},
+  "battery_level": "float",
+  "operational_mode": "string",
+  "safety_status": "string"
+}
+```
+
+## Navigation Service
+
+### Send Navigation Goal
+- **Service**: `/navigate_to_pose`
+- **Request Type**: `nav2_msgs/srv/NavigateToPose`
+- **Response Type**: `nav2_msgs/srv/NavigateToPose_Response`
+
+**Request Schema**:
+```json
+{
+  "pose": {
+    "position": {"x": "float", "y": "float", "z": "float"},
+    "orientation": {"x": "float", "y": "float", "z": "float", "w": "float"}
+  },
+  "frame_id": "string",
+  "timeout": "float"
+}
+```
+
+**Response Schema**:
+```json
+{
+  "success": "boolean",
+  "message": "string",
+  "navigation_time": "float"
+}
+```
+
+## AI Command Service
+
+### Process Natural Language Command
+- **Service**: `/process_ai_command`
+- **Request Type**: Custom message
+- **Response Type**: Custom message
+
+**Request Schema**:
+```json
+{
+  "command_id": "string",
+  "natural_language": "string",
+  "context": "string",
+  "timestamp": "float"
+}
+```
+
+**Response Schema**:
+```json
+{
+  "command_id": "string",
+  "parsed_intent": "object",
+  "execution_plan": "array",
+  "confidence": "float",
+  "status": "string"
+}
+```
+
+## Safety Service
+
+### Check Safety Constraints
+- **Service**: `/check_safety`
+- **Request Type**: Custom message
+- **Response Type**: Custom message
+
+**Request Schema**:
+```json
+{
+  "proposed_action": "string",
+  "parameters": "object",
+  "robot_state": "object"
+}
+```
+
+**Response Schema**:
+```json
+{
+  "is_safe": "boolean",
+  "violated_constraints": "array",
+  "suggested_alternatives": "array"
+}
+```
+
+## Error Handling
+
+### Standard Error Response
+```json
+{
+  "error_code": "string",
+  "message": "string",
+  "timestamp": "float",
+  "command_id": "string"
+}
+```
+
+### Common Error Codes
+- `INVALID_COMMAND`: AI command could not be parsed
+- `SAFETY_VIOLATION`: Proposed action violates safety constraints
+- `NAVIGATION_FAILED`: Navigation goal could not be achieved
+- `RESOURCE_UNAVAILABLE`: Required resource is not available
+- `TIMEOUT`: Operation exceeded time limit
+
+## Quality of Service Settings
+
+- **Reliable**: For safety-critical commands
+- **Best Effort**: For sensor data and visualization
+- **Transient Local**: For static transforms and maps
+- **Keep Last**: For state updates (queue size: 1)
+
+## Performance Requirements
+
+- Command processing latency: < 2 seconds
+- Navigation command response: < 100ms
+- State update frequency: 30 Hz minimum
+- Safety check completion: < 50ms
