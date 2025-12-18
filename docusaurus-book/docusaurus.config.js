@@ -9,15 +9,15 @@ const darkTheme = themes.dracula;
 const config = {
   title: 'AI-Native Physical Humanoid Robotics',
   tagline: 'Architecture, Simulation, and Cognition',
-  url: 'https://your-domain.com',
-  baseUrl: '/',
+  url: 'https://tanzeela-0325.github.io',
+  baseUrl: '/Robotic_ai_book/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
   // GitHub pages deployment config
-  organizationName: 'your-org', // Usually your GitHub org/user name
-  projectName: 'ai-humanoid-robotics-book', // Usually your repo name
+  organizationName: 'tanzeela-0325', // Usually your GitHub org/user name
+  projectName: 'Robotic_ai_book', // Usually your repo name
 
   presets: [
     [
@@ -28,7 +28,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo URL
           editUrl:
-            'https://github.com/your-org/ai-humanoid-robotics-book/edit/main/',
+            'https://github.com/tanzeela-0325/Robotic_ai_book/edit/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -54,7 +54,7 @@ const config = {
             label: 'Book',
           },
           {
-            href: 'https://github.com/your-org/ai-humanoid-robotics-book',
+            href: 'https://github.com/tanzeela-0325/Robotic_ai_book',
             label: 'GitHub',
             position: 'right',
           },
@@ -77,7 +77,7 @@ const config = {
             items: [
               {
                 label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/ai-humanoid-robotics',
+                href: 'https://stackoverflow.com/questions/tagged/Robotic_ai_book',
               },
             ],
           },
@@ -86,7 +86,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/your-org/ai-humanoid-robotics-book',
+                href: 'https://github.com/tanzeela-0325/Robotic_ai_book',
               },
             ],
           },
