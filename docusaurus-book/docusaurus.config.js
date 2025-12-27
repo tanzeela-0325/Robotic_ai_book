@@ -11,7 +11,8 @@ const config = {
   tagline: 'Architecture, Simulation, and Cognition',
   url: 'https://tanzeela-0325.github.io',
   baseUrl: '/Robotic_ai_book/',
-  onBrokenLinks: 'throw',
+  trailingSlash: false,
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
@@ -44,7 +45,7 @@ const config = {
         title: 'AI-Native Humanoid Robotics',
         logo: {
           alt: 'AI Robotics Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.jpg',
         },
         items: [
           {
