@@ -56,22 +56,22 @@ export default function Home() {
               <Card
                 title="Module 1: The Robotic Nervous System (ROS 2)"
                 description="Learn the fundamentals of AI-native humanoid robotics"
-                to="/docs/modules/module-1-ros-nervous-system/index"
+                to="/docs/modules/module-1-ros-nervous-system"
               />
               <Card
                 title="Module 2: The Digital Twin (Gazebo & Unity)"
                 description="Deep dive into humanoid robot architecture and design"
-                to="/docs/modules/module-2-digital-twin/index"
+                to="/docs/modules/module-2-digital-twin"
               />
               <Card
                 title="Module 3: The AI-Robot Brain (NVIDIA Isaac™)"
                 description="Master simulation environments for humanoid robots"
-                to="/docs/modules/module-3-ai-brain/index"
+                to="/docs/modules/module-3-ai-brain"
               />
               <Card
                 title="Module 4: Vision-Language-Action (VLA)"
                 description="Explore AI cognition and decision making in robotics"
-                to="/docs/modules/module-4-vla/index"
+                to="/docs/modules/module-4-vla"
               />
             </div>
           </div>
